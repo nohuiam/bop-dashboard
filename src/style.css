@@ -1,0 +1,321 @@
+/* boxofprompts.com Local Dashboard - Craigslist-Simple CSS */
+
+:root {
+  --bg-color: #f5f5f0;
+  --text-color: #333;
+  --border-color: #ccc;
+  --link-color: #0000cc;
+  --healthy-color: #2ecc71;
+  --offline-color: #e74c3c;
+  --warning-color: #f39c12;
+  --unknown-color: #95a5a6;
+  --card-bg: #fff;
+  --hover-bg: #f0f0f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background-color: #590059;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.header-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.header-stats .stat {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.header-stats .stat.healthy {
+  color: #90EE90;
+}
+
+.header-stats .stat.warning {
+  color: #FFD700;
+}
+
+/* Main layout */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Servers section */
+.servers-section h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.servers-section .hint {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+/* Category groups */
+.category-group {
+  margin-bottom: 20px;
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 5px;
+}
+
+.category-count {
+  font-weight: normal;
+  color: #888;
+  font-size: 12px;
+}
+
+.category-servers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Server cards */
+.server-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.server-card:hover {
+  background-color: var(--hover-bg);
+}
+
+.server-card.expanded {
+  border-left: 3px solid var(--link-color);
+}
+
+.server-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-indicator {
+  font-size: 12px;
+  width: 15px;
+  text-align: center;
+}
+
+.server-name {
+  font-weight: bold;
+  color: var(--link-color);
+}
+
+.server-port {
+  font-size: 12px;
+  color: #888;
+  font-family: monospace;
+}
+
+.tool-count {
+  font-size: 11px;
+  color: #888;
+  margin-left: auto;
+}
+
+.expand-icon {
+  font-size: 11px;
+  color: #888;
+  font-family: monospace;
+}
+
+.server-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 3px;
+  margin-left: 25px;
+}
+
+/* Status colors */
+.status-healthy .status-indicator { color: var(--healthy-color); }
+.status-offline .status-indicator { color: var(--offline-color); }
+.status-timeout .status-indicator { color: var(--warning-color); }
+.status-error .status-indicator { color: var(--warning-color); }
+.status-unknown .status-indicator { color: var(--unknown-color); }
+
+/* Tool list */
+.tool-list {
+  margin-top: 10px;
+  margin-left: 25px;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+}
+
+.tool-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #ddd;
+  cursor: help;
+}
+
+.tool-item:last-child {
+  border-bottom: none;
+}
+
+.tool-item:hover {
+  background-color: #fff5cc;
+}
+
+.tool-name {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--link-color);
+  min-width: 200px;
+}
+
+.tool-desc {
+  font-size: 11px;
+  color: #666;
+}
+
+.no-tools {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Status section */
+.status-section {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.status-section h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.status-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 13px;
+}
+
+.status-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.status-label {
+  color: #666;
+}
+
+.refresh-btn {
+  width: 100%;
+  padding: 8px;
+  background-color: #590059;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.refresh-btn:hover {
+  background-color: #7a007a;
+}
+
+.refresh-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 12px;
+  color: #888;
+}
+
+.footer .hint {
+  font-size: 11px;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .status-section {
+    position: static;
+    order: -1;
+  }
+
+  .tool-name {
+    min-width: auto;
+  }
+
+  .tool-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+/* Tooltip styling (native) */
+.tool-item[title] {
+  position: relative;
+}
