@@ -150,7 +150,7 @@ export const SERVERS = [
     id: 'verifier-mcp',
     name: 'Verifier MCP',
     port: 8021,
-    category: 'Verification',
+    category: 'Cognitive',
     description: 'Claim extraction, fact verification',
     toolCount: 3
   },
@@ -242,6 +242,14 @@ export const SERVERS = [
     port: 8031,
     category: 'Cognitive',
     description: 'Experience tracking, learning patterns, knowledge synthesis',
+    toolCount: 8
+  },
+  {
+    id: 'tenets-server',
+    name: 'Tenets Server',
+    port: 8027,
+    category: 'Cognitive',
+    description: 'Ethical decision evaluation against 25 Gospel tenets',
     toolCount: 8
   }
 ];
