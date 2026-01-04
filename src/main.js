@@ -184,8 +184,8 @@ async function refreshHealth() {
 
   try {
     healthStatus = await checkAllServersHealth(SERVERS);
-    updateStatusPanel();
     renderApp();
+    updateStatusPanel();
   } catch (error) {
     console.error('Health check failed:', error);
   }
